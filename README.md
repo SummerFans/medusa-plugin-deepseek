@@ -11,7 +11,7 @@ npm install medusa-plugin-deepseek
 ...
 plugins: [
     {
-      resolve: "@rsc-labs/medusa-products-bought-together-v2",
+      resolve: "medusa-plugin-deepseek",
       options: {
         api_key: process.env.DEEPSEEK_API_KEY,
       }
