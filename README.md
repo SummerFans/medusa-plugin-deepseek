@@ -19,7 +19,7 @@ plugins: [
 ]
 ...
 ```
-3. Run migrations, e.g. npx medusa db:migrate
+3. Run migrations, e.g. ```npx medusa db:migrate```
 
 ## How can I use it?
 

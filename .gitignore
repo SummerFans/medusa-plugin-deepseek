@@ -28,4 +28,6 @@ build
 yalc.lock
 yarn.lock
 
+medusa-config.js
+
 package-lock.json

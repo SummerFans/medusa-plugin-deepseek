@@ -8,6 +8,7 @@ export interface DeepSeekDataMessage {
   content: string;
 }
 
+// https://api-docs.deepseek.com/api/create-chat-completion
 export interface DeepSeekChatData {
   messages: DeepSeekDataMessage[];
   model: "deepseek-chat" | "deepseek-reasoner";
@@ -38,6 +39,7 @@ export interface DeepSeekChatData {
   top_logprobs?: number;
 }
 
+// https://api-docs.deepseek.com/api/create-chat-completion
 export interface DeepSeekChatCompletion {
   id: string;
   choices: {
@@ -85,9 +87,16 @@ export interface DeepSeekChatCompletion {
       }[];
     };
   }[];
-}
 
+  error?:{
+    message: string;
+    type: string;
+    param: any;
+    code: string;
+  }
+}
 export interface DeepSeekBalance {
+  error?:string,
   is_available: boolean;
   balance_infos: {
     currency: string; // 货币，人民币或美元

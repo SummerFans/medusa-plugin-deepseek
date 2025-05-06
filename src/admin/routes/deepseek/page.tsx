@@ -1,32 +1,28 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk";
-// import { useLoaderData } from "react-router-dom";
-import { Container } from "@medusajs/ui";
-import DeepSeekLogo from '../../icons/logo';
+import { useLoaderData } from "react-router-dom";
+// import { Button, Container, } from "@medusajs/ui";
+import DeepSeekLogo from "../../icons/logo";
 import DeepSeekIcon from "../../icons/sidebar-logo";
+// import { useState } from "react";
+import Balance from "../../components/Balance";
 
 export async function loader() {
   // TODO fetch products
-  const response = await fetch(`/admin/deepseek/balance`, {
-    method: "POST",
-  });
-  const result = await response.json();
+  const response = await fetch(`/admin/plugin/deepseek?type=balance`);
+  const balance = await response.json();
 
-  return {
-    balance: result,
-  };
+  return balance;
 }
 
 const DeepSeekPage = () => {
-  // const { balance } = useLoaderData() as Awaited<ReturnType<typeof loader>>;
+  const { balance } = useLoaderData() as Awaited<ReturnType<typeof loader>>;
 
   return (
-    <div>
-      <div className="p-6 w-full align-right">
-      <DeepSeekLogo className="h-16" />
+    <div className="@container">
+      <div className="text-center py-16">
+        <DeepSeekLogo className="h-16 inline-block" />
       </div>
-      <Container className="w-full">
-        Hello
-      </Container>
+      <Balance balance={balance}/>
     </div>
   );
 };

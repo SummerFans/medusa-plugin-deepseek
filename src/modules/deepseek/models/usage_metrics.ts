@@ -1,7 +1,7 @@
 import { model } from "@medusajs/framework/utils";
 
 // Aggregate indicator update (scheduled task)
-export const DeepSeekRequest = model
+export const DeepSeekUsageMetrics = model
   .define("plugin-deepseek-usage-metrics", {
     metric_id: model.id().primaryKey(),
     api_name: model.text().index(),
